@@ -1,3 +1,27 @@
 [gd_scene format=3 uid="uid://pj71gkpr7enq"]
 
+[ext_resource type="Script" uid="uid://2856t8rmxv18" path="res://scripts/Game.cs" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://rdrtn7y5krwe" path="res://scripts/Player.cs" id="2_yqjtg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uwrxv"]
+radius = 43.737854
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqjtg"]
+size = Vector2(1154.5, 82)
+
 [node name="Game" type="Node2D" unique_id=309202752]
+script = ExtResource("1_uwrxv")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1817293705]
+position = Vector2(55, 60)
+script = ExtResource("2_yqjtg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1509662024]
+shape = SubResource("CircleShape2D_uwrxv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1499554746]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1908285181]
+position = Vector2(575.75, 381)
+shape = SubResource("RectangleShape2D_yqjtg")
+debug_color = Color(0.15294118, 0.6392157, 0.2509804, 0.79607844)
