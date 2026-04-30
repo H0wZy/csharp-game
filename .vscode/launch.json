@@ -9,7 +9,8 @@
       "program": "/home/h0wzy/.local/bin/godot",
       "args": [
         "--path",
-        "${workspaceFolder}"
+        "${workspaceFolder}",
+        "--debug-collisions"
       ],
       "cwd": "${workspaceFolder}",
       "stopAtEntry": false,
@@ -24,6 +25,7 @@
       "args": [
         "--path",
         "${workspaceFolder}",
+        "--debug-collisions",
         "${file}"
       ],
       "cwd": "${workspaceFolder}",

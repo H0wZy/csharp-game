@@ -4,7 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://c6xh2o7o1eq4q" path="res://entities/player.tscn" id="2_yqjtg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqjtg"]
-size = Vector2(187.25, 18)
+size = Vector2(75.8125, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
+size = Vector2(56.40625, 28)
 
 [node name="Game" type="Node2D" unique_id=309202752]
 script = ExtResource("1_uwrxv")
@@ -12,9 +15,34 @@ script = ExtResource("1_uwrxv")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1499554746]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1908285181]
-position = Vector2(74, 90)
+position = Vector2(39.09375, 170)
 shape = SubResource("RectangleShape2D_yqjtg")
 debug_color = Color(0.15294118, 0.6392157, 0.2509804, 0.79607844)
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=315239271]
+position = Vector2(117, 151)
+shape = SubResource("RectangleShape2D_lnu2h")
+debug_color = Color(0.15294118, 0.6392157, 0.2509804, 0.79607844)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1230559137]
+position = Vector2(183, 122)
+shape = SubResource("RectangleShape2D_lnu2h")
+debug_color = Color(0.15294118, 0.6392157, 0.2509804, 0.79607844)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=368975704]
+position = Vector2(250, 90)
+shape = SubResource("RectangleShape2D_lnu2h")
+debug_color = Color(0.15294118, 0.6392157, 0.2509804, 0.79607844)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1824754730]
+position = Vector2(318, 73)
+shape = SubResource("RectangleShape2D_lnu2h")
+debug_color = Color(0.15294118, 0.6392157, 0.2509804, 0.79607844)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=263071465]
+position = Vector2(377, 33)
+shape = SubResource("RectangleShape2D_lnu2h")
+debug_color = Color(0.15294118, 0.6392157, 0.2509804, 0.79607844)
+
 [node name="Player" parent="." unique_id=427007359 instance=ExtResource("2_yqjtg")]
-position = Vector2(11, 15)
+position = Vector2(10, 93)
