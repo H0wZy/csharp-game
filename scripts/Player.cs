@@ -2,38 +2,63 @@ using Godot;
 
 public partial class Player : CharacterBody2D
 {
-	private const float Speed = 300.0f;
-	private const float JumpVelocity = -400.0f;
+    private const float Speed = 60.0f;
+    private const float JumpVelocity = -300.0f;
 
-	public override void _PhysicsProcess(double delta)
-	{
-		var velocity = Velocity;
+    private AnimatedSprite2D _animation;
 
-		// Add the gravity.
-		if (!IsOnFloor())
-		{
-			velocity += GetGravity() * (float)delta;
-		}
+    public override void _Ready()
+    {
+        _animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+    }
 
-		// Handle Jump.
-		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
-		{
-			velocity.Y = JumpVelocity;
-		}
+    public override void _PhysicsProcess(double delta)
+    {
+        var velocity = Velocity;
 
-		// Get the input direction and handle the movement/deceleration.
-		// As good practice, you should replace UI actions with custom gameplay actions.
-		var direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		if (direction != Vector2.Zero)
-		{
-			velocity.X = direction.X * Speed;
-		}
-		else
-		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-		}
+        // Add the gravity.
+        if (!IsOnFloor())
+        {
+            velocity += GetGravity() * (float)delta;
+        }
 
-		Velocity = velocity;
-		MoveAndSlide();
-	}
+        // Handle Jump.
+        if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+        {
+            velocity.Y = JumpVelocity;
+        }
+
+        // Get the input direction and handle the movement/deceleration.
+        // As good practice, you should replace UI actions with custom gameplay actions.
+        var direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+
+        if (direction != Vector2.Zero)
+        {
+            velocity.X = direction.X * Speed;
+        }
+        else
+        {
+            velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+        }
+
+        if (IsOnFloor())
+        {
+            if (direction.X != 0)
+            {
+                _animation.FlipH = direction.X < 0;
+            }
+
+            _animation.Play(direction != Vector2.Zero ? "walk" : "idle");
+        }
+        else
+        {
+            _animation.Play("jump");
+            // _animation.Play("falling");
+        }
+
+
+
+        Velocity = velocity;
+        MoveAndSlide();
+    }
 }

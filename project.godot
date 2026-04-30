@@ -15,6 +15,13 @@ run/main_scene="uid://pj71gkpr7enq"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
+[display]
+
+window/size/viewport_width=150
+window/size/viewport_height=100
+window/size/mode=2
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="csharp-game"
@@ -25,4 +32,5 @@ project/assembly_name="csharp-game"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
