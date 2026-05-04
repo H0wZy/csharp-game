@@ -69,7 +69,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_q0i8f")
 }],
 "loop": true,
-"name": &"falling",
+"name": &"fall",
 "speed": 5.0
 }, {
 "frames": [{
@@ -134,7 +134,7 @@ shape = SubResource("CapsuleShape2D_u3f3p")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=320871052]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_merdl")
-animation = &"falling"
+animation = &"fall"
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1401231725]
