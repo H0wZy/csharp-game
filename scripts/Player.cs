@@ -13,7 +13,6 @@ public partial class Player : CharacterBody2D
 
     private const float JumpCutMultiplier = 0.5f;
 
-    // TODO: Implementar double jump
     private const int MaxJumps = 2;
     private int _jumpsRemaining = MaxJumps;
 
@@ -28,8 +27,9 @@ public partial class Player : CharacterBody2D
     {
         float deltaTime = (float)delta;
         var velocity = Velocity;
+        bool isOnFloor = IsOnFloor();
 
-        bool isFallPressed = Input.IsActionPressed("down");
+        bool isDownPressed = Input.IsActionPressed("down");
         bool isJumpJustPressed = Input.IsActionJustPressed("jump");
         bool isJumpJustReleased = Input.IsActionJustReleased("jump");
 
@@ -37,11 +37,11 @@ public partial class Player : CharacterBody2D
         var direction = Input.GetAxis("left", "right");
 
         // Gravidade
-        if (!IsOnFloor())
+        if (!isOnFloor)
         {
             Vector2 gravity = GetGravity();
 
-            if (isFallPressed)
+            if (isDownPressed)
                 gravity *= FastFallMultiplier;
 
             velocity += gravity * deltaTime;
@@ -50,9 +50,15 @@ public partial class Player : CharacterBody2D
                 velocity.Y = MaxFallSpeed;
         }
 
-        // Pulo
-        if (isJumpJustPressed && IsOnFloor())
-            velocity.Y = JumpVelocity;
+        if (isOnFloor)
+            _jumpsRemaining = MaxJumps;
+
+        // Pulo + double jump
+        if (isJumpJustPressed && _jumpsRemaining > 0)
+        {
+            velocity.Y = JumpVelocity;  
+            _jumpsRemaining--;
+        }
 
         // Cortar o pulo ao soltar o botão
         if (isJumpJustReleased && velocity.Y < 0)
@@ -68,21 +74,21 @@ public partial class Player : CharacterBody2D
         else
             velocity.X = Mathf.MoveToward(velocity.X, 0, Friction * deltaTime);
 
-        UpdateAnimation(direction, velocity, isFallPressed);
+        UpdateAnimation(direction, velocity, isDownPressed, isOnFloor);
 
         Velocity = velocity;
         MoveAndSlide();
     }
 
-    private void UpdateAnimation(float direction, Vector2 velocity, bool isFallPressed)
+    private void UpdateAnimation(float direction, Vector2 velocity, bool isDownPressed, bool isOnFloor)
     {
-        if (IsOnFloor())
+        if (isOnFloor)
         {
             _animation.Play(direction != 0 ? "walk" : "idle");
             return;
         }
 
-        if (isFallPressed)
+        if (isDownPressed)
         {
             _animation.Play("fall");
             return;
