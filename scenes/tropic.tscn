@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bw4tynhr2o78g" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/3 - Background_cloud.png" id="6_2v5ri"]
 [ext_resource type="Texture2D" uid="uid://dx4xyiq7btiue" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/1 - Waters_version_1.png" id="7_63ryy"]
 [ext_resource type="Texture2D" uid="uid://crjowvcs04f3m" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/2 - Waters_version_2.png" id="8_wyuaa"]
+[ext_resource type="PackedScene" uid="uid://n7vtlieojbgi" path="res://entities/camera.tscn" id="9_wyuaa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ttii7"]
 animations = [{
@@ -79,7 +80,7 @@ motion_mirroring = Vector2(288, 0)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxBackground/2-water" unique_id=1944939714]
 sprite_frames = SubResource("SpriteFrames_ttii7")
 autoplay = "default"
-frame_progress = 0.47902122
+frame_progress = 0.92762
 centered = false
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ParallaxBackground/2-water" unique_id=1044207154]
@@ -88,3 +89,6 @@ sprite_frames = SubResource("SpriteFrames_ttii7")
 autoplay = "default"
 frame_progress = 0.21185353
 centered = false
+
+[node name="Camera" parent="." unique_id=1014124199 instance=ExtResource("9_wyuaa")]
+position = Vector2(436, 79)

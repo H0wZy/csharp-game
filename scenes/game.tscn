@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c6xh2o7o1eq4q" path="res://entities/player.tscn" id="2_yqjtg"]
 [ext_resource type="TileSet" uid="uid://cnh7js1xphdag" path="res://tiles/terrain.tres" id="3_iywne"]
 [ext_resource type="TileSet" uid="uid://xquhr26ak580" path="res://tiles/decoration.tres" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://n7vtlieojbgi" path="res://entities/camera.tscn" id="5_iywne"]
 
 [node name="Game" type="Node2D" unique_id=309202752]
 script = ExtResource("1_uwrxv")
@@ -20,3 +21,6 @@ tile_set = ExtResource("3_iywne")
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=375002383]
 tile_map_data = PackedByteArray("AAACAAEAAAABAAUAAAAIAP//AAABAAUAAAAOAAEAAAABAAUAAAAHAAMAAAAPAAIAAAAIAAMAAAAQAAIAAAAJAAMAAAARAAIAAAALAAYAAAAFAAUAAAAMAAYAAAAGAAUAAAANAAYAAAAHAAUAAAAAAAgAAAADAAUAAAAFAAUAAAAJAAEAAAASAAYAAAAJAAEAAAAKAAYAAAABAAUAAAAWAAUAAQAAAAAAAAAZAAYAAAAJAAEAAAAcAAYAAAAJAAEAAAATAAcAAAABAAUAAAAYAAcAAAABAAUAAAA=")
 tile_set = ExtResource("4_lbhrr")
+
+[node name="Camera" parent="." unique_id=1014124199 instance=ExtResource("5_iywne")]
+position = Vector2(27, 114)
