@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bw4tynhr2o78g"
-path="res://.godot/imported/4 - Background_clouds.png-c943d900121f1cffa0b92cd45075c533.ctex"
+path="res://.godot/imported/3 - Background_cloud.png-41ce2ca6fb088f47ab428d70efefbab5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/4 - Background_clouds.png"
-dest_files=["res://.godot/imported/4 - Background_clouds.png-c943d900121f1cffa0b92cd45075c533.ctex"]
+source_file="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/3 - Background_cloud.png"
+dest_files=["res://.godot/imported/3 - Background_cloud.png-41ce2ca6fb088f47ab428d70efefbab5.ctex"]
 
 [params]
 
