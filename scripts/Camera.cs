@@ -1,5 +1,7 @@
 using Godot;
 
+namespace csharpgame.scripts;
+
 public partial class Camera : Camera2D
 {
 	private Node2D _target;

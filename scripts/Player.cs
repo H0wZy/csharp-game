@@ -1,5 +1,7 @@
 using Godot;
 
+namespace csharpgame.scripts;
+
 public partial class Player : CharacterBody2D
 {
     private const float Speed = 60.0f;

@@ -1,5 +1,6 @@
 using Godot;
-using System;
+
+namespace csharpgame.scripts;
 
 public partial class Game : Node2D
 {
